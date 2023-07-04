@@ -24,7 +24,7 @@ from keras.models import Sequential
 from keras.layers import Conv2D, MaxPooling2D
 from keras.optimizers import Adam
 from keras.callbacks import ModelCheckpoint
-from sklearn.metrics import classification_report, confusion_matrix
+from sklearn.metrics import classification_report, accuracy_score, confusion_matrix
 #from sklearn.metrics import accuracy_score,
 #from mlxtend.plotting import plot_confusion_matrix
 #from tensorflow.contrib import lite
