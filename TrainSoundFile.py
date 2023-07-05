@@ -506,12 +506,12 @@ class TrainHeartBeatData:
         trainHeartBeatData = TrainHeartBeatData()
         
         #Creating a dataframe for the input audio data
-        raw_data = self.create_dataframe("raw_data")
+        raw_data = trainHeartBeatData.create_dataframe("raw_data")
         raw_data
         
         
         #move to desired working directory, preferably where your datasets sits
-        os.chdir(self.data_path)
+        os.chdir(trainHeartBeatData.data_path)
         
         #creates working directory
         os.mkdir('working')
@@ -644,7 +644,7 @@ class TrainHeartBeatData:
         print('||||||||||||||||||||||||||||||||||||||||||||||||||||||' + '\n')
         
         #
-        y_actual_y_pred = trainHeartBeatData.calculate_display_precision(cnn_model_value, cnn_model_value, x_test, y_test)
+        y_actual_y_pred = trainHeartBeatData.calculate_display_precision(cnn_model_value, x_test, y_test)
         y_actual = y_actual_y_pred[0]
         y_pred = y_actual_y_pred[1]
         
@@ -684,6 +684,7 @@ class TrainHeartBeatData:
         trainHeartBeatData.save_model(cnn_model_value, 'saved_model/my_model') #e.g. my_model.h5
         
         #change in directory where file is
+        os.chdir('saved_model')
         new_model = trainHeartBeatData.get_model_from_file('my_model')
         
         #just to check the architecture of your model
@@ -698,7 +699,7 @@ class TrainHeartBeatData:
         print(restored_model_accuracy + '\n')
         
         #convert training to tflite
-        trainHeartBeatData.convert_model_to_tflite('heartbeat_classifier_model')
+        trainHeartBeatData.convert_model_to_tflite('my_model')
 
 
 
