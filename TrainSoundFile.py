@@ -485,7 +485,7 @@ class TrainHeartBeatData:
     
     
     def save_model(self, cnn_model_value, file_name): #save without extension or my_model.h5
-        cnn_model_value.save('file_name')
+        cnn_model_value.save(file_name)
         
         
     def get_model_from_file(self, file_path): #return in tensorflow format
